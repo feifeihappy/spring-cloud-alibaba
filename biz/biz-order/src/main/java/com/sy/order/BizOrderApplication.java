@@ -18,17 +18,15 @@ package com.sy.order;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.ComponentScan;
 
 @EnableFeignClients
 @MapperScan(basePackages = "com.sy")
 @SpringBootApplication(scanBasePackages = "com.sy")
-public class Application {
+public class BizOrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(BizOrderApplication.class, args);
     }
 
 }

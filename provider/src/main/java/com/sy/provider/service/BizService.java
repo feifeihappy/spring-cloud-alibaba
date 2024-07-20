@@ -14,7 +14,7 @@ public class BizService {
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("username", username);
-        map.put("password", "123456");
+        map.put("password", "1234567");
         log.info("map -> {}", map);
         return map;
     }

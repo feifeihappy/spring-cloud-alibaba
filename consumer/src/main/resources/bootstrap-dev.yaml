@@ -1,14 +1,18 @@
 spring:
   cloud:
     nacos:
-      server-addr: http://192.168.1.211:8108/
+      server-addr: http://localhost:8848/
       discovery:
         group: dev
     sentinel:
       transport:
         dashboard: 192.168.1.211:9988
         port: 8899
-
+  datasource:
+    url: jdbc:mysql://localhost:3306/seata?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: rootf
+    password: 1234567
+    driver-class-name: com.mysql.cj.jdbc.Driver
     # rocket mq 配置
     stream:
       rocketmq:

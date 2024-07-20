@@ -13,19 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.sy.stock;
+package com.sy.web;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients
 @MapperScan(basePackages = "com.sy")
-@SpringBootApplication(scanBasePackages = "com.sy", exclude = DataSourceAutoConfiguration.class)
-public class Application {
+@SpringBootApplication
+public class BizWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(BizWebApplication.class, args);
     }
 
 }

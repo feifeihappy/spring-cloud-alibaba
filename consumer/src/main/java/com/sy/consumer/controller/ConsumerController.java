@@ -29,8 +29,8 @@ public class ConsumerController {
     @GetMapping("/echo/app-name")
     public String echoAppName() {
         //使用 LoadBalanceClient 和 RestTemolate 结合的方式来访问
-        ServiceInstance serviceInstance = loadBalancerClient.choose("biz");
-        String url = String.format("http://%s:%s/echo/%s", serviceInstance.getHost(), serviceInstance.getPort(), appName);
+        ServiceInstance serviceInstance = loadBalancerClient.choose("provider");
+        String url = String.format("http://%s:%s/biz/echo/%s", serviceInstance.getHost(), serviceInstance.getPort(), appName);
         System.out.println("request url:" + url);
         String result = restTemplate.getForObject(url, String.class);
         log.info("result -> {}", result);

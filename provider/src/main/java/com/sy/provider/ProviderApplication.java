@@ -1,17 +1,14 @@
-package com.sy.consumer;
+package com.sy.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
-
-@EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-public class Application {
+public class ProviderApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ProviderApplication.class, args);
     }
 }
 

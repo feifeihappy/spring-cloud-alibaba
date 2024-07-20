@@ -1,12 +1,12 @@
 spring:
   cloud:
     nacos:
-      server-addr: http://192.168.1.211:8108/
+      server-addr: http://127.0.0.1:8848/
       discovery:
         group: dev
     sentinel:
       transport:
-        dashboard: 192.168.1.211:8109
+        dashboard: localhost:8858
         port: 8900
 
 seata:
@@ -17,7 +17,7 @@ seata:
     vgroup-mapping:
       my-tx-group: seata-server
     grouplist:
-      seata-server: 192.168.1.211:8091
+      seata-server: localhost:8091
 
 management:
   tracing:

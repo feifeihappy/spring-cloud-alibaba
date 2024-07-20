@@ -3,16 +3,18 @@ spring:
     web-application-type: reactive
   cloud:
     nacos:
-      server-addr: http://192.168.1.211:8108/
+      server-addr: http://127.0.0.1:8848/
       discovery:
         group: dev
     sentinel:
       transport:
-        dashboard: 192.168.1.211:9988
+        dashboard: localhost:8858
         port: 8899
     gateway:
       discovery:
+        # 是否与服务发现组件结合，通过serviceId转发到具体服务实例
         locator:
+          # 是否开启基于服务发现的路由规则
           enabled: true
       routes:
         - id: consumer-service
@@ -21,7 +23,8 @@ spring:
             - Method=GET,POST
             - Path=/consumer-service/**
         - id: biz
-          uri: lb://biz
+#          配置即可找到 nacos中的provider服务
+          uri: lb://provider
 #          uri: http://192.168.1.125:9110
           predicates:
             - Method=GET,POST
@@ -29,7 +32,6 @@ spring:
   security:
     oauth2:
       authorizationserver:
-        client:
 
 
 
