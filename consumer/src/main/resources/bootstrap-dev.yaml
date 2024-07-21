@@ -6,24 +6,17 @@ spring:
         group: dev
     sentinel:
       transport:
-        dashboard: 192.168.1.211:9988
+        dashboard: localhost:8858
         port: 8899
-  datasource:
-    url: jdbc:mysql://localhost:3306/seata?characterEncoding=utf-8&serverTimezone=GMT%2B8
-    username: rootf
-    password: 1234567
-    driver-class-name: com.mysql.cj.jdbc.Driver
+
     # rocket mq 配置
     stream:
       rocketmq:
         binder:
-          name-server: 192.168.1.211:9876
-
-
+          name-server: localhost:9876
       function:
-        definition: test;dev
+        definition: test;dev;
       bindings:
-
         test-in-0:
           destination: test-topic
           content-type: application/json
@@ -31,7 +24,6 @@ spring:
           consumer:
             instance-count: 3
             concurrency: 5
-
         dev-in-0:
           destination: dev-topic
           content-type: application/json
@@ -39,3 +31,9 @@ spring:
           consumer:
             instance-count: 3
             concurrency: 5
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/seata?characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver

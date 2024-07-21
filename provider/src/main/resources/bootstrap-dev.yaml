@@ -28,25 +28,22 @@ spring:
     stream:
       rocketmq:
         binder:
-          name-server: 192.168.1.211:9876
+          name-server: localhost:9876
       bindings:
         test-out-0:
           destination: test-topic
           content-type: application/json
           group: test-group
-        dev-out-0:
-          destination: dev-topic
-          content-type: application/json
-          group: dev-group
 
-management:
-  tracing:
-    sampling:
-      probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: http://192.168.1.211:8112/api/v2/spans
-      connect-timeout: 3s
+
+#management:
+#  tracing:
+#    sampling:
+#      probability: 1.0
+#  zipkin:
+#    tracing:
+#      endpoint: http://192.168.1.211:8112/api/v2/spans
+#      connect-timeout: 3s
 
 logging:
   pattern:

@@ -26,13 +26,13 @@ public class MqSubService {
             log.info("消息 test：" + payload + "__" + headers);
         };
     }
-
-    @Bean
-    public Consumer<Message<Person>> dev() {
-        return message -> {
-            MessageHeaders headers = message.getHeaders();
-            Person payload = message.getPayload();
-            log.info("消息 dev：" + payload + "__" + headers);
-        };
-    }
+//
+//    @Bean
+//    public Consumer<Message<Person>> dev() {
+//        return message -> {
+//            MessageHeaders headers = message.getHeaders();
+//            Person payload = message.getPayload();
+//            log.info("消息 dev：" + payload + "__" + headers);
+//        };
+//    }
 }

@@ -15,7 +15,9 @@ public class MqSendService {
     @Resource
     private StreamBridge streamBridge;
 
-    public void send(String channel, String message, String tag, String keys) {
+    public void send(String channel, String message
+//            , String tag, String keys
+    ) {
         Person person = new Person();
         person.setName(message);
         Message<Person> build = MessageBuilder.withPayload(person).build();
