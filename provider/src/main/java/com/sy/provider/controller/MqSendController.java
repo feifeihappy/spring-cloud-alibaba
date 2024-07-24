@@ -19,9 +19,9 @@ public class MqSendController {
     @Operation(summary = "发送")
     @GetMapping("/msg")
     public void send(@RequestParam String channel, @RequestParam String message
-//            , @RequestParam String tag, @RequestParam String keys
+            , @RequestParam String tag, @RequestParam String keys
     ) {
-//        mqSendService.send(channel, message, tag, keys);
-        mqSendService.send(channel, message);
+        mqSendService.send(channel, message, tag, keys);
+//        mqSendService.send(channel, message);
     }
 }

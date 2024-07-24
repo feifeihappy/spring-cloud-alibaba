@@ -16,11 +16,13 @@ public class MqSendService {
     private StreamBridge streamBridge;
 
     public void send(String channel, String message
-//            , String tag, String keys
+            , String tag, String keys
     ) {
         Person person = new Person();
         person.setName(message);
-        Message<Person> build = MessageBuilder.withPayload(person).build();
+        Message<Person> build = MessageBuilder.withPayload(person)
+                .setHeader(MessageConst.PROPERTY_TAGS, tag).setHeader(MessageConst.PROPERTY_KEYS, keys).build();
         streamBridge.send(channel, build);
+
     }
 }
